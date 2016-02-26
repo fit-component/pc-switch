@@ -1,6 +1,6 @@
 {
   "name": "fit-switch",
-  "version": "1.1.42",
+  "version": "1.1.47",
   "description": "开关",
   "main": "lib/index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.3",
-    "fit-style": "^1.1.39",
+    "fit-style": "^1.1.44",
     "lodash": "^3.10.1",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
