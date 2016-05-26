@@ -1,6 +1,6 @@
 {
   "name": "fit-switch",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "开关",
   "main": "lib/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "dependencies": {
     "react": "^15.0.1",
     "classnames": "^2.2.3",
-    "lodash": "^3.10.1",
-    "typings": "lib/index.d.ts"
-  }
+    "lodash": "^3.10.1"
+  },
+  "typings": "lib/index.d.ts"
 }
