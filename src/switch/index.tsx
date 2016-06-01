@@ -1,28 +1,33 @@
-import React from 'react'
-import classNames from 'classnames'
-import _ from 'lodash'
+import * as React from 'react'
+import * as classNames from 'classnames'
+import * as _ from 'lodash'
+import * as module from './module'
+import {others} from '../../../../common/transmit-transparently/src'
 import './index.scss'
 
-function noop() {
-}
+export default class Switch extends React.Component<module.PropsInterface, module.StateInterface> {
+    static defaultProps: module.PropsInterface = new module.Props()
+    public state: module.StateInterface = new module.State()
 
-export default class Switch extends React.Component {
-    constructor(props) {
+    constructor(props: any) {
         super(props)
+    }
 
-        const _props = this.props
+    componentWillMount() {
         let checked = false
-        if ('checked' in _props) {
-            checked = _props.checked
-        } else {
-            checked = _props.defaultChecked
+        if (this.props.defaultChecked !== null) {
+            checked = this.props.defaultChecked
         }
+        if (this.props.checked !== null) {
+            checked = this.props.checked
+        }
+
         this.state = {
             checked: checked
         }
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps:any) {
         if ('checked' in nextProps) {
             this.setState({
                 checked: nextProps.checked
@@ -39,7 +44,7 @@ export default class Switch extends React.Component {
     }
 
     render() {
-        const {className, disabled, checkedChildren, unCheckedChildren, ...others} = this.props
+        const {className, disabled} = this.props
 
         const checked = this.state.checked
 
@@ -52,11 +57,13 @@ export default class Switch extends React.Component {
             [`size-${this.props.size || 'normal'}`]: true
         })
 
+        const _others = others(new module.Props(), this.props)
+
         let Switch = (
-            <span {...others} className={switchClassName}
-                              onClick={disabled ? noop : this.toggle.bind(this)}>
+            <span {..._others} className={switchClassName}
+                              onClick={disabled ? null : this.toggle.bind(this)}>
               <span className={`inner`}>
-                {this.state.checked ? checkedChildren : unCheckedChildren}
+                {this.state.checked ? this.props.checkedChildrenRender : this.props.unCheckedChildrenRender}
               </span>
             </span>
         )
@@ -73,13 +80,4 @@ export default class Switch extends React.Component {
 
         return Switch
     }
-}
-
-Switch.defaultProps = {
-    style: {},
-    checkedChildren: null,
-    unCheckedChildren: null,
-    className: '',
-    defaultChecked: false,
-    onChange: noop
 }
