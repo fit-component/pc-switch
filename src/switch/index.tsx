@@ -27,8 +27,8 @@ export default class Switch extends React.Component<module.PropsInterface, modul
         }
     }
 
-    componentWillReceiveProps(nextProps:any) {
-        if ('checked' in nextProps) {
+    componentWillReceiveProps(nextProps: any) {
+        if ('checked' in nextProps && nextProps.checked !== null) {
             this.setState({
                 checked: nextProps.checked
             })
@@ -61,7 +61,7 @@ export default class Switch extends React.Component<module.PropsInterface, modul
 
         let Switch = (
             <span {..._others} className={switchClassName}
-                              onClick={disabled ? null : this.toggle.bind(this)}>
+                               onClick={disabled ? null : this.toggle.bind(this)}>
               <span className={`inner`}>
                 {this.state.checked ? this.props.checkedChildrenRender : this.props.unCheckedChildrenRender}
               </span>

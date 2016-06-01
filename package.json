@@ -1,6 +1,6 @@
 {
   "name": "fit-switch",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "开关",
   "main": "lib/index.js",
   "scripts": {
