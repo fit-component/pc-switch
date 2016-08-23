@@ -1,6 +1,6 @@
 {
   "name": "fit-switch",
-  "version": "3.0.23",
+  "version": "3.0.35",
   "description": "开关",
   "main": "lib/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "react": "^0.14.0 || ^15.0.0",
     "classnames": "^2.2.3",
     "lodash": "^3.10.1",
-    "fit-transmit-transparently": "^3.1.26"
+    "fit-transmit-transparently": "^3.1.38"
   },
   "typings": "lib/index.d.ts"
 }
